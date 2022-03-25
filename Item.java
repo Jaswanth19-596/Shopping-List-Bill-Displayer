@@ -1,21 +1,16 @@
 
 class Item{
 
-    private int price;
+    private double price;
     private int quantity;
-    private String name;
     static final double GST = 0.18;
 
-    Item(String name,int price,int quantity){
-        this.name = name;
-        this.price = price;
+    Item(String name,Double double1,int quantity){
+        this.price = double1;
         this.quantity = quantity;
     }
 
     public double getPrice(){
-        return this.price * this.quantity * GST;
+        return this.price * this.quantity;
     }
-
-    public 
-
 }
