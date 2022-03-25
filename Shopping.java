@@ -7,9 +7,11 @@ import java.time.format.DateTimeFormatter;
 public class Shopping {
     
    static Scanner sc = new Scanner(System.in);
-   static double GST = 0.18;
+   
+   // GST is same for every item
+   public final static double GST = 0.18;
 
-
+   // Prints the bill
    static void printBill(Map<String,Integer> quantityMap,Map<String,Double> itemPriceMap){
 
         double totalPrice = 0;
@@ -46,6 +48,7 @@ public class Shopping {
     }
 
 
+    // Required amount of items are added to the shop
     public static void fillPrice(Map<String, Double> priceMap){
         priceMap.put("Choclates",35d);
         priceMap.put("Wallet",499d);
@@ -53,6 +56,7 @@ public class Shopping {
         priceMap.put("VenchiCiocollato",1500d);
     }
 
+    // when user selects an item .. it takes the quantity of the item
     public static void getItemsFromUser(Map<String,Double> itemPriceMap,Map<String,Integer> quantityMap,Map<String,Double> priceMap,String item){
 
         System.out.print(String.format("Enter no of %s : ",item));
@@ -72,9 +76,11 @@ public class Shopping {
 
     public static void main(String[] args) {
     
-        
+        // used for storing item : quantity
         Map<String,Integer> quantityMap = new HashMap<>();
+        // Usef for storing item : Actual price
         Map<String,Double> priceMap = new HashMap<>();
+        // used for storing item : No of items * actual price
         Map<String,Double> itemPriceMap = new HashMap<>();
 
         // fills the map with items along with its prices
@@ -85,11 +91,12 @@ public class Shopping {
         int choice;
         System.out.println("************ Welcome to the mart  **************");
         do{
+            // if the user enters a character instead of number then it raises an exception
             try{
                 System.out.println("\t1.Choclates\n\t2.Wallet \n\t3.IceCream \n\t4.Venchi_ciocollato\n\t5.Print Bill \n\t6.Exit \n\nBuy something : )");
 
-            // if the user enters a character instead of number
                 choice = sc.nextInt();
+                
                 switch(choice){
 
                     case 1 : {
@@ -112,6 +119,7 @@ public class Shopping {
                                 System.exit(0);
                                  break;
                     case 6 : System.exit(0);
+
                     default : System.out.println("Come on man !!!! Enter from the options that are displayed");                        
                 }
 
